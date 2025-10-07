@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="medicine_categories_templates" xml:space="preserve">
+    <t t-name="my_ecommerce_website.medicine_categories_carousel_content">
+        <div class="row g-4">
+            <t t-foreach="categories" t-as="cat" t-key="cat.id">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex align-items-center justify-content-center" style="height: 120px;">
+                            <h6 class="card-title mb-0 text-center" t-esc="cat.name"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

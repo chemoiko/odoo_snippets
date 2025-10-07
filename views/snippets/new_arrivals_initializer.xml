@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="products_category_wise_template" name="New Arrivals Snippet">
+        <section class="new_arrivals_product_snippet">
+            <div class="container py-5">
+                <div class="ref-arrival-content text-center mb-4">
+                    <h2 class="ref-section_head" style="color: #0d5272;">New Arrivals</h2>
+                </div>
+                <div id="top_products_carousel">
+                    <!-- Loading placeholder -->
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
+

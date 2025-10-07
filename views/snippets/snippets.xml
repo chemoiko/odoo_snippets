@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- basic static snippet -->
+    <!-- <template id="basic_snippet_banner" inherit_id="website.snippets" name="Snippet banner">
+        <xpath expr="//snippets[@id='snippet_groups']" position="inside">
+            <t t-snippet="my_ecommerce_website.basic_snippet_template" />
+        </xpath>
+    </template> -->
+
+
+
+
+
+
+
+
+    <template id="campaigns_carousel_snippet_registration" inherit_id="website.snippets" name="Campaigns Carousel Snippet">
+        <xpath expr="//snippets[@id='snippet_groups']" position="inside">
+            <t t-snippet="my_ecommerce_website.campaigns_carousel_template"/>
+        </xpath>
+    </template>
+
+    <template id="trusted_brands_snippet_registration" inherit_id="website.snippets" name="Trusted Brands Snippet">
+        <xpath expr="//snippets[@id='snippet_groups']" position="inside">
+            <t t-snippet="my_ecommerce_website.trusted_brands_template"/>
+        </xpath>
+    </template>
+
+    <!-- dynamic snippets -->
+    <template id="new_arrivals_snippet_registration" inherit_id="website.snippets" name="New Arrivals Snippet">
+        <xpath expr="//snippets[@id='snippet_groups']" position="inside">
+            <t t-snippet="my_ecommerce_website.products_category_wise_template"/>
+        </xpath>
+    </template>
+
+    <template id="medicine_categories_snippet_registration" inherit_id="website.snippets" name="Medicine Categories Snippet">
+        <xpath expr="//snippets[@id='snippet_groups']" position="inside">
+            <t t-snippet="my_ecommerce_website.medicine_categories_template"/>
+        </xpath>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="new_arrivals_template" xml:space="preserve">
+    <!-- Keep template name the same that JS expects -->
+    <t t-name="my_ecommerce_website.products_carousel_content">
+        <div class="row g-4">
+            <t t-foreach="chunkData" t-as="chunk" t-key="chunk_index">
+                <t t-foreach="chunk" t-as="product" t-key="product_index">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm">
+                            <a t-attf-href="/shop/product/#{product.id}" class="text-decoration-none">
+                                <div class="overflow-hidden rounded-top">
+                                    <img class="card-img-top" t-attf-src="data:image/jpeg;base64,#{product.image_1920}" t-att-alt="product.name" style="height: 250px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title text-dark mb-2" t-esc="product.name"/>
+                                    <p class="mb-0 fw-bold" style="color: #0D5272; font-size: 18px;">
+                                        $                                        <span t-esc="product.list_price"/>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </div>
+    </t>
+
+</templates>
+

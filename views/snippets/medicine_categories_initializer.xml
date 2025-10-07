@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="medicine_categories_template" name="Medicine Categories Snippet">
+        <section class="medicine_categories_snippet">
+            <div class="container py-5">
+                <div class="ref-arrival-content text-center mb-4">
+                    <h2 class="ref-section_head" style="color: #0d5272;">Shop By Category</h2>
+                </div>
+                <div id="medicine_categories_carousel">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
+
