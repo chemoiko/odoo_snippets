@@ -1,7 +1,6 @@
-import time
-
 from odoo import http
 from odoo.http import request
+import json
 
 
 class DynamicSnippets(http.Controller):
@@ -31,18 +30,17 @@ class DynamicSnippets(http.Controller):
 
         return {"categories": filtered_categories}
 
-    @http.route("/medicine_categories", type="json", auth="public")
-    def medicine_categories(self):
-        """Return the latest 4 product.category records by create_date."""
-        categories = (
-            request.env["product.category"]
+    @http.route("/get_medicine_categories", auth="public", type="json", website=True)
+    def get_medicine_categories(self):
+        """Return all product public categories (id and name) in descending order."""
+        public_categs = (
+            request.env["product.public.category"]
             .sudo()
             .search_read(
-                [],
-                ["id", "name"],
-                order="create_date desc",
-                limit=4,
+                [],  # no filter, get all categories
+                ["id", "name"],  # only id and name
+                order="id desc",  # descending order by ID
+                limit=4,  # only latest 4
             )
         )
-
-        return {"categories": categories}
+        return {"categories": public_categs}

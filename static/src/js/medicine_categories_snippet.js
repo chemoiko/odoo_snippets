@@ -1,37 +1,24 @@
-/** @odoo-module */
-import PublicWidget from "@web/legacy/js/public/public_widget";
-import { rpc } from "@web/core/network/rpc";
+/** @odoo-module **/
 import { renderToElement } from "@web/core/utils/render";
+import publicWidget from "@web/legacy/js/public/public_widget";
+import { rpc } from "@web/core/network/rpc";
 
-/**
- * Medicine Categories Widget
- */
-var MedicineCategoriesWidget = PublicWidget.Widget.extend({
+publicWidget.registry.medicine_categories = publicWidget.Widget.extend({
     selector: '.medicine_categories_snippet',
+    async willStart() {
+        // Fetch categories from JSON route
+        const result = await rpc('/get_medicine_categories', {});
+        console.log('Fetched medicine categories:', result);
 
-    willStart: async function () {
-        // Fetch categories from your JSON route
-        const data = await rpc('/medicine_categories', {});
-        this.categories = data.categories || [];
-    },
 
-    start: function () {
-        const refEl = this.$el.find("#medicine_categories_carousel");
-
-        if (!this.categories || this.categories.length === 0) {
-            refEl.html('<p class="text-center text-muted">No categories available</p>');
-            return;
+        if (result) {
+            // Render the QWeb template and inject into the widget container
+            this.$target.empty().html(
+                renderToElement(
+                    'my_ecommerce_website.medicine_categories_carousel_content',
+                    { result: result }
+                )
+            );
         }
-
-        // Render the QWeb template with the categories
-        const contentEl = renderToElement('my_ecommerce_website.medicine_categories_carousel_content', {
-            categories: this.categories
-        });
-
-        refEl.empty().append(contentEl);
-    }
+    },
 });
-
-// Register the widget
-PublicWidget.registry.medicine_categories_snippet = MedicineCategoriesWidget;
-export default MedicineCategoriesWidget;

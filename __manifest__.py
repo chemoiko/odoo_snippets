@@ -18,6 +18,7 @@
             "my_ecommerce_website/static/src/xml/new_arrivals_snippet_templates.xml",
             "my_ecommerce_website/static/src/xml/medicine_categories_snippet_templates.xml",
             "my_ecommerce_website/static/src/js/new_arrivals_snippet.js",
+            "my_ecommerce_website/static/src/js/medicine_categories_snippet.js",
         ],
     },
     "installable": True,
