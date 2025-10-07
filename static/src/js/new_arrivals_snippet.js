@@ -15,7 +15,7 @@ var NewArrivalsWidget = PublicWidget.Widget.extend({
     selector: '.new__arrivals_product_snippet',
 
     willStart: async function () {
-        const data = await rpc('/top_selling_products', {});
+        const data = await rpc('/new_arrivals', {});
         this.products = data.products || [];
         this.categories = data.categories || [];
         this.website_id = data.website_id;
@@ -23,13 +23,9 @@ var NewArrivalsWidget = PublicWidget.Widget.extend({
     },
 
     start: function () {
-        const refEl = this.$el.find("#top_products_carousel, #top_selling_products_carousel");
         const { products } = this;
 
-        if (!products || products.length === 0) {
-            refEl.html('<p class="text-center text-muted">No products available</p>');
-            return;
-        }
+
 
         const chunkData = _chunk(products, 4);
 
